@@ -2,7 +2,7 @@ import sbt._,Keys._
 
 object Build extends Build {
   lazy val baseSettings = Seq(
-    scalaVersion := "2.10.1-RC2",
+    scalaVersion := "2.10.1",
     organization := "com.github.hexx",
     scalacOptions ++= Seq("-deprecation", "-feature", "-unchecked"),
     initialCommands in console += "import com.github.hexx.htmlda._",

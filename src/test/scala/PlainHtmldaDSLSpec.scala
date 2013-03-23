@@ -37,5 +37,15 @@ class GaedsSpec extends WordSpec with MustMatchers {
 
       node.render must be === html
     }
+
+    "escape text in attributes" in {
+      val node = dsl {
+        %a ($("href" -> "<br>"), t("text"))
+      }
+
+      val html = """<a href="&lt;br&gt;">text</a>"""
+
+      node.render must be === html
+    }
   }
 }

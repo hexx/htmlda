@@ -1,6 +1,7 @@
 package com.github.hexx.htmlda
 
 import scala.util.DynamicVariable
+import scala.xml.Utility
 
 trait DynamicHtmldaDSL {
   self: HtmldaDSL =>
@@ -24,7 +25,7 @@ trait DynamicHtmldaDSL {
 
   override object % extends DSL
 
-  def $(as: (String, String)*) = attributes.value = attributes.value ++ as
+  def $(as: (String, String)*) = attributes.value = attributes.value ++ as.map { case (l, r) => l -> Utility.escape(r) }
 
   def t(text: String) = nodes.value = createTextNode(text) :: nodes.value
 
