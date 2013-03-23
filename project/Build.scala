@@ -32,4 +32,31 @@ object Build extends Build {
       )
     ) : _*
   ).dependsOn(htmlda)
+
+  lazy val unfilteredHtmlda = Project(
+    id = "unfiltered-htmlda",
+    base = file("unfiltered-htmlda")
+  ).settings(
+    baseSettings ++ seq(
+      name := "unfiltered-htmlda",
+      version := "0.0.1",
+      libraryDependencies ++= Seq(
+        "com.github.hexx" %% "htmlda" % "0.0.1",
+        "net.databinder" %% "unfiltered" % "0.6.7"
+      )
+    ) : _*
+  ).dependsOn(htmlda)
+
+  lazy val unfilteredHtmldaSample = Project(
+    id = "unfiltered-htmlda-sample",
+    base = file("unfiltered-htmlda-sample")
+  ).settings(
+    baseSettings ++ seq(
+      libraryDependencies ++= Seq(
+        "net.databinder" %% "unfiltered-filter" % "0.6.7",
+        "net.databinder" %% "unfiltered-jetty" % "0.6.7",
+        "com.github.hexx" %% "unfiltered-htmlda" % "0.0.1"
+      )
+    ) : _*
+  ).dependsOn(unfilteredHtmlda)
 }
