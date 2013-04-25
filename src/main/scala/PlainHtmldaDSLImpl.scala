@@ -12,9 +12,11 @@ trait PlainHtmldaDSLImpl {
 
   case class ElementNode(
     override val name: String,
-    override val attributes: Map[String, String],
+    attributes0: Map[String, String],
     override val children: List[Node]
   ) extends Node with ElementNodeApi {
+    override val attributes = attributes0.mapValues(Utility.escape(_))
+
     def render = {
       val as = attributes.mapValues("\"" + _ + "\"")
       s"""<${name}${as.map { case (l, r) => s" $l=$r" }.mkString}>${children.map(_.render).mkString}</${name}>"""

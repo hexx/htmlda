@@ -25,7 +25,7 @@ trait DynamicHtmldaDSL {
 
   override object % extends DSL
 
-  def $(as: (String, String)*) = attributes.value = attributes.value ++ as.map { case (l, r) => l -> Utility.escape(r) }
+  def $(as: (String, String)*) = attributes.value = attributes.value ++ as.map { case (l, r) => l -> r }
 
   def t(text: String) = nodes.value = createTextNode(text) :: nodes.value
 

@@ -1,7 +1,7 @@
 import org.scalatest.WordSpec
 import org.scalatest.matchers.MustMatchers
 
-class GaedsSpec extends WordSpec with MustMatchers {
+class PlainHtmldaDSLSpec extends WordSpec with MustMatchers {
   "PlainHtmldaDSL" must {
     import com.github.hexx.htmlda.PlainHtmldaDSL._
 
