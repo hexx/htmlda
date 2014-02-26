@@ -1,7 +1,6 @@
-import org.scalatest.WordSpec
-import org.scalatest.matchers.MustMatchers
+import org.scalatest.{WordSpec, Matchers}
 
-class PlainHtmldaDSLSpec extends WordSpec with MustMatchers {
+class PlainHtmldaDSLSpec extends WordSpec with Matchers {
   "PlainHtmldaDSL" must {
     import com.github.hexx.htmlda.PlainHtmldaDSL._
 
@@ -25,7 +24,7 @@ class PlainHtmldaDSLSpec extends WordSpec with MustMatchers {
 
       val html = """<html><head><link rel="stylesheet" href="style.css"></link><title>タイトルだよ</title></head><body><p>1だよ</p><p>2だよ</p><p>3だよ</p><p><a href="http://ubiregi.com">ユビレジ</a></p></body></html>"""
 
-      node.render must be === html
+       node.render shouldBe html
     }
 
     "escape text in TextNode" in {
@@ -35,7 +34,7 @@ class PlainHtmldaDSLSpec extends WordSpec with MustMatchers {
 
       val html = """<p>&lt;html&gt;&lt;/html&gt;</p>"""
 
-      node.render must be === html
+      node.render shouldBe html
     }
 
     "escape text in attributes" in {
@@ -45,7 +44,7 @@ class PlainHtmldaDSLSpec extends WordSpec with MustMatchers {
 
       val html = """<a href="&lt;br&gt;">text</a>"""
 
-      node.render must be === html
+      node.render shouldBe html
     }
   }
 }
