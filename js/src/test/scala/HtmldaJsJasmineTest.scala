@@ -20,9 +20,9 @@ object HtmldaJsJasmineTest extends JasmineTest {
 
       val body = global.document.getElementsByTagName("body").asInstanceOf[js.Array[js.Dynamic]].head
 
-      val pHtml = body.innerHTML.toString
+      val p = body.innerHTML.toString
 
-      expect(body.innerHTML.toString).toMatch(""".*<p><a href=\"http://www.scala-js.org/\">Scala.js</a></p>.*""")
+      expect(p).toMatch(""".*<p><a href=\"http://www.scala-js.org/\">Scala.js</a></p>.*""")
     }
   }
 }

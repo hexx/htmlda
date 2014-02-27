@@ -1,6 +1,3 @@
-import sbt._,Keys._
-import scala.scalajs.sbtplugin.ScalaJSPlugin.{scalaJSSettings, scalaJSVersion}
-
 val htmldaVersion = "0.1.1"
 val htmldaJsVersion = s"$htmldaVersion-JS"
 
